@@ -1,0 +1,9 @@
+<h3>Listagem de Alunos</h3>
+
+<ul class="list-group">
+    <li *ngFor="let aluno of alunos" class="list-group-item">
+        <a routerLink="/alunodetail/{{aluno.id}}" >
+            <h4>{{aluno.nome}}</h4>
+        </a>
+    </li>
+</ul>

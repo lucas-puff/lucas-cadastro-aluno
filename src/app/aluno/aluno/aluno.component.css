@@ -1,0 +1,13 @@
+.ng-invalid.ng-touched:not(form)
+{
+    border: 1px solid red;
+}
+
+.grupo_opcoes
+{
+    margin-bottom: 1%;
+    padding: 1%;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    max-width: 300px;
+}

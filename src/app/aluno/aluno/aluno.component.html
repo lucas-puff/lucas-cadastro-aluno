@@ -1,0 +1,124 @@
+<h3>Cadastro de Aluno</h3>
+<form #formulario="ngForm" (ngSubmit) = "onSubmit(formulario)" class="form-horizontal" >
+
+    <div class="form-group">
+        <div class="col-sm-12">
+            <label for="nome" class="control-label">Nome</label>
+        </div>
+
+        <div class="col-sm-12">
+            <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome" 
+            required #nome="ngModel" [(ngModel)]="aluno.nome">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-12">
+            <label for="email" class="control-label">E-mail Contato</label>
+        </div>
+
+        <div class="col-sm-12"> 
+            <input type="email" email class="form-control" name="email" id="email" placeholder="E-mail de Contato"
+            required #email="ngModel" [(ngModel)]="aluno.email">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-4">
+            <label for="dataNascimento" class="control-label">Data de Nascimento</label>
+        </div>
+
+        <div class="col-sm-4"> 
+            <input type="date" date class="form-control" name="dataNascimento" id="dataNascimento" 
+            required #dataNascimento="ngModel" [(ngModel)]="aluno.dataNascimento">
+        </div>
+    </div>
+
+    <div class="col-sm-4">
+        <label for="sexo" class="control-label">Sexo</label>
+    </div>
+
+    <div class="grupo_opcoes">      
+        <div class="form-check">
+            <input class="form-check-input" type="radio" radio name="sexo" id="sexoMasculino" 
+            value="Masculino" #sexo="ngModel" [(ngModel)]="aluno.sexo" checked>
+
+            <label class="form-check-label" for="sexoMasculino">
+                Masculino
+            </label>
+        </div>
+
+        <div class="form-check">
+            <input class="form-check-input" type="radio" radio name="sexo" id="sexoFeminino" 
+            value="Feminino" #sexo="ngModel" [(ngModel)]="aluno.sexo">
+
+            <label class="form-check-label" for="sexoFeminino">
+                Feminino
+            </label>
+        </div>
+    </div>
+
+    <div class="col-sm-4">
+        <label for="descontoExAluno" class="control-label">Descontos</label>
+    </div>
+
+    <div class="grupo_opcoes">
+        
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" checkbox name="descontoExAluno" id="descontoExAluno"
+            value=true #descontoExAluno [(ngModel)]="aluno.descontoExAluno">
+
+            <label class="form-check-label" for="descontoExAluno">
+                Ex Aluno
+            </label>
+        </div>
+
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" checkbox name="descontoPromocional" id="descontoPromocional"
+            value=true #descontoPromocional [(ngModel)]="aluno.descontoPromocional">
+
+            <label class="form-check-label" for="descontoPromocional">
+                Desconto Promocional
+            </label>
+        </div>
+
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" checkbox name="descontoTrabalhadorIndustrial" 
+            id="descontoTrabalhadorIndustrial" value=true 
+            #descontoTrabalhadorIndustrial [(ngModel)]="aluno.descontoTrabalhadorIndustrial">
+
+            <label class="form-check-label" for="descontoTrabalhadorIndustrial">
+                Desconto Trabalhador Industrial
+            </label>
+        </div>
+    </div>
+
+    <button type="submit" [disabled]="!formulario.valid" class="btn btn-primary">Submeter</button>
+</form>
+
+<h3>Listagem de Alunos</h3>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Data Nascimento</th>
+        <th scope="col">E-mail</th>
+        <th scope="col">Sexo</th>
+        <th scope="col">Desconto Promocional</th>
+        <th scope="col">Desconto Ex Aluno</th>
+        <th scope="col">Desconto Trabalhador Industrial</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let a of alunos">
+        <td>{{ a.nome }}</td>
+        <td>{{ a.dataNascimento }}</td>
+        <td>{{ a.email }}</td>
+        <td>{{ a.sexo }}</td>
+        <td>{{ a.descontoExAluno }}</td>
+        <td>{{ a.descontoPromocional }}</td>
+        <td>{{ a.descontoTrabalhadorIndustrial }} </td>
+      </tr>
+    </tbody>
+</table>

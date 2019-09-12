@@ -1,0 +1,28 @@
+<h3>Listagem de Alunos {{aluno.nome}}</h3>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Data Nascimento</th>
+        <th scope="col">E-mail</th>
+        <th scope="col">Sexo</th>
+        <th scope="col">Desconto Promocional</th>
+        <th scope="col">Desconto Ex Aluno</th>
+        <th scope="col">Desconto Trabalhador Industrial</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let a of alunos">
+        <td>{{ a.nome }}</td>
+        <td>{{ a.dataNascimento }}</td>
+        <td>{{ a.email }}</td>
+        <td>{{ a.sexo }}</td>
+        <td>{{ a.descontoExAluno }}</td>
+        <td>{{ a.descontoPromocional }}</td>
+        <td>{{ a.descontoTrabalhadorIndustrial }} </td>
+      </tr>
+    </tbody>
+</table>
+
+<a routerLink="/alunolista" class="btn btn-danger">Retornar</a>

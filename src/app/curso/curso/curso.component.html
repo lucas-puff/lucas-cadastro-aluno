@@ -1,0 +1,58 @@
+<h3>Cadastro de Curso</h3>
+<form #formulario="ngForm" (ngSubmit) = "onSubmit(formulario)" class="form-horizontal" >
+
+    <div class="form-group">
+        <div class="col-sm-12">
+            <label for="nome" class="control-label">Nome</label>
+        </div>
+
+        <div class="col-sm-12">
+            <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome" 
+            required #nome="ngModel" [(ngModel)]="curso.nome" >
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-12">
+            <label for="descricao" class="control-label" >Descrição</label>
+        </div>
+
+        <div class="col-sm-12">
+            <input type="text" class="form-control" name="descricao" id="descricao" placeholder="Descricão"
+            required #descricao="ngModel" [(ngModel)]="curso.descricao">
+        </div>
+    </div>
+
+    <div class="form-group">
+
+        <div class="col-sm-12">
+            <label for="email" class="control-label">E-mail Contato</label>
+        </div>
+
+        <div class="col-sm-12"> 
+            <input type="email" email class="form-control" name="email" id="email" placeholder="E-mail de Contato"
+            required #email="ngModel" [(ngModel)]="curso.email">
+        </div>
+    </div>
+
+    <button type="submit" [disabled]="!formulario.valid" class="btn btn-primary">Submeter</button>
+</form>
+
+<h3>Listagem de Curso</h3>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Descricão</th>
+        <th scope="col">E-mail</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of cursos">
+        <td>{{ c.nome }}</td>
+        <td>{{ c.descricao }}</td>
+        <td>{{ c.email }}</td>
+      </tr>
+    </tbody>
+</table>
